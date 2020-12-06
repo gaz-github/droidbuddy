@@ -4,6 +4,13 @@ A GUI built in Tkinter, using ADB and scrcpy, for device recovery and maintenanc
 # Dependencies
 `scrcpy`, `tkinter` and `adb` are required for this program to function.
 
+# Running
+```
+git clone https://github.com/gaz-github/droidbuddy
+cd droidbuddy
+python3 main.py
+```
+
 # Features
 - **APK Installation**: Install an Android application package with ease.
 - **Screen viewing and interaction**: Control your device through an scrcpy window.

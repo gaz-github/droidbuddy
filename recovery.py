@@ -21,6 +21,7 @@ cameraCheck = tk.Button (
     master=window,
     text="Camera",
     height=2,
+    relief=tk.FLAT,
     width=10,
     command=recoverCam
 )
@@ -29,6 +30,7 @@ downloadsCheck = tk.Button (
     text="Downloads",
     height=2,
     width=10,
+    relief=tk.FLAT,
     command=recoverDown
 )
 musicCheck = tk.Button (
@@ -36,6 +38,7 @@ musicCheck = tk.Button (
     text="Music",
     height=2,
     width=10,
+    relief=tk.FLAT,
     command=recoverMus
 )
 all = tk.Button(
@@ -44,22 +47,23 @@ all = tk.Button(
     height=2,
     width=10,
     command=recoverAll,
+    relief=tk.FLAT,
     fg="white",
     bg="red"
 )
 warning = tk.Label(
     master=window,
     text="WARNING!!!\nFILE SIZE WILL BE LARGE\nAND TRANSFER WILL BE LENGTHY.",
-    height=3,
     width=30,
+    relief=tk.FLAT,
     fg="white",
     bg="red"
 )
 
-cameraCheck.pack(side=tk.LEFT)
-downloadsCheck.pack(side=tk.LEFT)
-musicCheck.pack(side=tk.LEFT)
-all.pack(side=tk.LEFT)
-warning.pack(side=tk.LEFT)
+cameraCheck.pack(side=tk.LEFT, fill=tk.Y)
+downloadsCheck.pack(side=tk.LEFT, fill=tk.Y)
+musicCheck.pack(side=tk.LEFT, fill=tk.Y)
+all.pack(side=tk.LEFT, fill=tk.Y)
+warning.pack(side=tk.LEFT, fill=tk.Y)
 
 window.mainloop()

@@ -1,15 +1,17 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
+from PIL import ImageTk, Image
 import subprocess
 import time
 
 window = tk.Tk()
 window.title("Droidbuddy")
 window.resizable(False, False)
+window.tk.call('wm', 'iconphoto', window._w, tk.PhotoImage(file='images/icon.png'))
 
-info = tk.Frame()
-buttons = tk.Frame()
+info = tk.Frame(bg="white")
+buttons = tk.Frame(bg="white")
 
 # Commands
 def installAPK():
@@ -26,11 +28,11 @@ def fileUpload():
     messagebox.showinfo("Information","Transfer successful, find files in DB-Transfer folder on device")
 
 # Information
+titleimg = ImageTk.PhotoImage(Image.open("images/logo2.png"))
 title = tk.Label(
-    master=info,
-    text="Droidbuddy",
-    fg="white",bg="#08a300",
-    height=2
+    image = titleimg,
+    height = 100,
+    width=30
 )
 warning = tk.Label(
     master=info,
@@ -44,28 +46,32 @@ button = tk.Button(
     master=buttons,
     text="Install .APK",
     width=20,height=2,
-    relief=tk.RAISED,
+    fg="white",bg="#08a300",
+    relief=tk.FLAT,
     command=installAPK
 )
 button2 = tk.Button(
     master=buttons,
     text="Recover files",
     width=20,height=2,
-    relief=tk.RAISED,
+    fg="white",bg="#4287f5",
+    relief=tk.FLAT,
     command=fileRecover
 )
 button3 = tk.Button(
     master=buttons,
     text="View screen",
     width=20,height=2,
-    relief=tk.RAISED,
+    fg="white",bg="orange",
+    relief=tk.FLAT,
     command=viewScreen
 )
 button4 = tk.Button(
     master=buttons,
     text="Upload files",
     width=20,height=2,
-    relief=tk.RAISED,
+    fg="white",bg="#4287f5",
+    relief=tk.FLAT,
     command=fileUpload
 )
 

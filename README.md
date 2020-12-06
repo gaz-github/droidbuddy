@@ -2,10 +2,11 @@
 A GUI built in Tkinter, using ADB and scrcpy, for device recovery and maintenance.
 
 # Dependencies
-`scrcpy`, `tkinter`, `PIL` (debian - `sudo apt install python3-pil python3-pil.imagetk`) and `adb` are required for this program to function.
+`scrcpy`, `tkinter`, `pillow` and `adb` are required for this program to function.
 
-# Running on Linux
+# Running on Linux (Debian/Ubuntu)
 ```
+sudo apt install python3-pil python3-pil.imagetk
 git clone https://github.com/gaz-github/droidbuddy
 cd droidbuddy
 python3 main.py

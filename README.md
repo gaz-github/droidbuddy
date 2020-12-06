@@ -2,7 +2,7 @@
 A GUI built in Tkinter, using ADB and scrcpy, for device recovery and maintenance.
 
 # Dependencies
-`scrcpy`, `tkinter` and `adb` are required for this program to function.
+`scrcpy`, `tkinter`, `PIL` and `adb` are required for this program to function.
 
 # Features
 - **APK Installation**: Install an Android application package with ease.

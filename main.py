@@ -22,8 +22,8 @@ def fileRecover():
 def fileUpload():
     files = filedialog.askopenfiles(mode="r", initialdir="/home")
     for i in range(len(files)):
-        subprocess.run(f"adb push {files[i].name} /sdcard/Download", shell=True)
-    messagebox.showinfo("Information","Transfer successful, find files in Download folder on device")
+        subprocess.run(f"adb push {files[i].name} /sdcard/DB-Transfer/{files[i].name}", shell=True)
+    messagebox.showinfo("Information","Transfer successful, find files in DB-Transfer folder on device")
 
 # Information
 title = tk.Label(

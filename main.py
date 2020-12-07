@@ -73,7 +73,8 @@ button4 = tk.Button(
     fg="white",bg="#4287f5",
     relief=tk.FLAT,
     command=fileUpload
-
+)
+    
 # Grids
 button.grid(row=0, column=0)
 button2.grid(row=0, column=1)

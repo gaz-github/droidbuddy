@@ -26,10 +26,7 @@ def fileUpload():
     for i in range(len(files)):
         subprocess.run(f"adb push {files[i].name} /sdcard/DB-Transfer/{files[i].name}", shell=True)
     messagebox.showinfo("Information","Transfer successful, find files in DB-Transfer folder on device")
-def factoryReset():
-    answer = messagebox.askyesno("WARNING!!","ARE YOU SURE YOU WANT TO CONTINUE? THIS WILL ERASE ALL DATA FROM THE DEVICE AND RESTART FROM FACTORY SETTINGS.")
-    if answer == True:
-        subprocess.run("adb shell recovery --wipe_data", shell=True)
+
 # Information
 titleimg = ImageTk.PhotoImage(Image.open("images/logo2.png"))
 title = tk.Label(
@@ -76,23 +73,12 @@ button4 = tk.Button(
     fg="white",bg="#4287f5",
     relief=tk.FLAT,
     command=fileUpload
-)
-button5 = tk.Button(
-    master=buttons,
-    text="FACTORY RESET\nDEVICE",
-    width=20,height=2,
-    fg="white",bg="red",
-    relief=tk.FLAT,
-    command=factoryReset
-)
 
 # Grids
 button.grid(row=0, column=0)
 button2.grid(row=0, column=1)
 button3.grid(row=1, column=0)
 button4.grid(row=1, column=1)
-button5.grid(row=2, column=0)
-
 
 # Packs
 title.pack(fill=tk.X)

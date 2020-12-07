@@ -26,4 +26,3 @@ python main.py
 - **Screen viewing and interaction**: Control your device through an scrcpy window.
 - **Recover files**: Allows you to back up music, downloads, photos or all of your device's files
 - **Upload files**: Upload files from your computer to your device with ease
-- **Factory reset**: Restore your device to factory settings easily

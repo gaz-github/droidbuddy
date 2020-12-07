@@ -1,21 +1,17 @@
 import tkinter as tk
 import subprocess
 import getpass
+from pathlib import Path
+from functools import partial
 
 window = tk.Tk()
 window.title("Recovery")
 window.resizable(False, False)
 
-name = getpass.getuser()
+home_dir = str(Path.home())
 
-def recoverCam():
-    exec(open('recover/camera.py').read())
-def recoverDown():
-    exec(open('recover/downloads.py').read())
-def recoverMus():
-    exec(open('recover/music.py').read())
-def recoverAll():
-    exec(open('recover/all.py').read())
+def recovery_fn(args):
+    subprocess.Popen(f"adb pull /sdcard/{args[0]} {args[1]}", shell=True).wait()
 
 cameraCheck = tk.Button (
     master=window,
@@ -23,7 +19,7 @@ cameraCheck = tk.Button (
     height=2,
     relief=tk.FLAT,
     width=10,
-    command=recoverCam
+    command=partial(recovery_fn, ['DCIM', f'{home_dir}/DB-Backup-Pictures'])
 )
 downloadsCheck = tk.Button (
     master=window,
@@ -31,7 +27,7 @@ downloadsCheck = tk.Button (
     height=2,
     width=10,
     relief=tk.FLAT,
-    command=recoverDown
+    command=partial(recovery_fn, ['Download', f'{home_dir}/DB-Backup-Downloads'])
 )
 musicCheck = tk.Button (
     master=window,
@@ -39,14 +35,14 @@ musicCheck = tk.Button (
     height=2,
     width=10,
     relief=tk.FLAT,
-    command=recoverMus
+    command=partial(recovery_fn, ['Music', f'{home_dir}/DB-Backup-Music'])
 )
 all = tk.Button(
     master=window,
     text="All",
     height=2,
     width=10,
-    command=recoverAll,
+    command=partial(recovery_fn, ['', f'{home_dir}/DB-Backup-Device']),
     relief=tk.FLAT,
     fg="white",
     bg="red"

@@ -23,6 +23,8 @@ def fileRecover():
     exec(open('recovery.py').read())
 def fileUpload():
     files = filedialog.askopenfiles(mode="r", initialdir="/home")
+    if not files:
+        return
     for i in range(len(files)):
         subprocess.run(f"adb push {files[i].name} /sdcard/DB-Transfer/{files[i].name}", shell=True)
     messagebox.showinfo("Information","Transfer successful, find files in DB-Transfer folder on device")

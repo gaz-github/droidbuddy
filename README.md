@@ -23,6 +23,6 @@ python main.py
 
 # Features
 - **APK Installation**: Install an Android application package with ease.
-- **Screen viewing and interaction**: Control your device through an scrcpy window.
+- **Screen viewing and interaction**: Control your device through an scrcpy window. ***DISCLAIMER: The screen control feature is not compatible with Xiaomi devices.***
 - **Recover files**: Allows you to back up music, downloads, photos or all of your device's files
 - **Upload files**: Upload files from your computer to your device with ease

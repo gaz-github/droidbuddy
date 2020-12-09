@@ -6,9 +6,10 @@ A GUI built in Tkinter, using ADB and scrcpy, for device recovery and maintenanc
 
 # Running on Linux (Debian/Ubuntu)
 ```
-sudo apt install python3-pil python3-pil.imagetk
 git clone https://github.com/gaz-github/droidbuddy
 cd droidbuddy
+sudo apt install pip
+pip install pillow
 python3 main.py
 ```
 # Running on Windows

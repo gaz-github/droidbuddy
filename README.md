@@ -26,3 +26,4 @@ python main.py
 - **Screen viewing and interaction**: Control your device through an scrcpy window. ***For Xiaomi devices, you will need to enable "USB Debugging (Security settings) for touch input to function.***
 - **Recover files**: Allows you to back up music, downloads, photos or all of your device's files
 - **Upload files**: Upload files from your computer to your device easily.
+- **Advanced device control**: This allows you to mimick home and back actions, change brightness and more to come.

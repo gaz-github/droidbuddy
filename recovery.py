@@ -5,10 +5,10 @@ from pathlib import Path
 from functools import partial
 
 window = tk.Tk()
-window.title("Recovery")
+window.title("Backup")
 window.resizable(False, False)
 
-home_dir = str(Path.home())
+home_dir = str(Path.home()).replace(" ", "_")
 
 def recovery_fn(args):
     subprocess.Popen(f"adb pull /sdcard/{args[0]} {args[1]}", shell=True).wait()

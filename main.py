@@ -4,6 +4,8 @@ from tkinter import messagebox
 from PIL import ImageTk, Image
 import subprocess
 import time
+from pathlib import Path
+from datetime import datetime
 
 window = tk.Tk()
 window.title("AndroidBuddy")
@@ -11,30 +13,33 @@ window.resizable(False, False)
 window.tk.call('wm', 'iconphoto', window._w, tk.PhotoImage(file='images/icon.png'))
 
 info = tk.Frame(bg="white")
-buttons = tk.Frame(bg="white")
+buttons = tk.Frame(bg="white", padx=20, pady=20)
 
 # Commands
 def installAPK():
-    apk = filedialog.askopenfile(mode="r", initialdir="/home")
+    apk = filedialog.askopenfile(mode="r", initialdir="/")
     subprocess.Popen(f"adb install -r {apk.name}", shell=True)
 def viewScreen():
     subprocess.Popen("scrcpy")
 def fileRecover():
     exec(open('recovery.py').read())
 def fileUpload():
-    files = filedialog.askopenfiles(mode="r", initialdir="/home")
+    files = filedialog.askopenfiles(mode="r", initialdir="/").replace(" ", "_")
     if not files:
         return
     for i in range(len(files)):
         subprocess.run(f"adb push {files[i].name} /sdcard/DB-Transfer/{files[i].name}", shell=True)
     messagebox.showinfo("Information","Transfer successful, find files in DB-Transfer folder on device")
+def advancedCtrl():
+    exec(open('control.py').read())
 
 # Information
 titleimg = ImageTk.PhotoImage(Image.open("images/logo2.png"))
 title = tk.Label(
     image = titleimg,
     height = 100,
-    width=30
+    width=30,
+    bg="white"
 )
 warning = tk.Label(
     master=info,
@@ -54,7 +59,7 @@ button = tk.Button(
 )
 button2 = tk.Button(
     master=buttons,
-    text="Recover files",
+    text="Back up files",
     width=20,height=2,
     fg="white",bg="#4287f5",
     relief=tk.FLAT,
@@ -76,12 +81,21 @@ button4 = tk.Button(
     relief=tk.FLAT,
     command=fileUpload
 )
-    
+button5 = tk.Button(
+    master=buttons,
+    text="Advanced device control",
+    width=20,height=2,
+    fg="white",bg="orange",
+    relief=tk.FLAT,
+    command=advancedCtrl
+)
+
 # Grids
 button.grid(row=0, column=0)
 button2.grid(row=0, column=1)
 button3.grid(row=1, column=0)
 button4.grid(row=1, column=1)
+button5.grid(row=2, column=0)
 
 # Packs
 title.pack(fill=tk.X)

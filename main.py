@@ -1,7 +1,6 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-from PIL import ImageTk, Image
 import subprocess
 import time
 from pathlib import Path
@@ -34,13 +33,6 @@ def advancedCtrl():
     exec(open('control.py').read())
 
 # Information
-titleimg = ImageTk.PhotoImage(Image.open("images/logo2.png"))
-title = tk.Label(
-    image = titleimg,
-    height = 100,
-    width=30,
-    bg="white"
-)
 warning = tk.Label(
     master=info,
     text="This program will only work if\nyou have USB Debugging enabled!",
@@ -49,6 +41,7 @@ warning = tk.Label(
 )
 
 # Main menu
+
 button = tk.Button(
     master=buttons,
     text="Install .APK",
@@ -98,7 +91,6 @@ button4.grid(row=1, column=1)
 button5.grid(row=2, column=0)
 
 # Packs
-title.pack(fill=tk.X)
 warning.pack(fill=tk.X)
 
 info.pack(fill=tk.X)

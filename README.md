@@ -18,7 +18,7 @@ python3 main.py
 choco install python pip git adb scrcpy
 git clone https://github.com/gaz-github/droidbuddy
 cd droidbuddy
-pip install pillow
+sudo pip3 install pillow
 python main.py
 ```
 
